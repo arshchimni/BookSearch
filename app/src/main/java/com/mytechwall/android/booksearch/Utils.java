@@ -37,21 +37,18 @@ public final class Utils {
         URL url = createUrl(inputUrl);
         String jsonResponse = null;
         jsonResponse = makeHttpRequest(url);
-        System.out.println(jsonResponse);
+
         books = extractBookData(jsonResponse);
         return books;
     }
 
     private static ArrayList<BookData> extractBookData(String jsonResponse) {
-
-        //TODO parse jason here
         String author="";
         ArrayList<BookData>bookData=new ArrayList<>();
         try {
         JSONObject fulldata = new JSONObject(jsonResponse);
          JSONArray items = fulldata.getJSONArray("items");
             for (int i = 0; i < items.length(); i++){
-                System.out.println("ImageLINKS"+items.getJSONObject(i).getJSONObject("volumeInfo").getJSONObject("imageLinks").toString());
                 String url = items.getJSONObject(i).getJSONObject("volumeInfo").getJSONObject("imageLinks").optString("thumbnail");
                 String title=items.getJSONObject(i).getJSONObject("volumeInfo").optString("title");
                 String description=items.getJSONObject(i).getJSONObject("volumeInfo").optString("description");
@@ -60,7 +57,7 @@ public final class Utils {
                 for (int  j=0;j<authors.length();j++){
                      author +=authors.getString(j);
                 }
-                System.out.println(author);
+
                 bookData.add(new BookData(author,title,description,url,rating));
                 author="";
             }
