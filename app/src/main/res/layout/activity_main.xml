@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/books"
     tools:context="com.mytechwall.android.booksearch.MainActivity">
 
     <Button
@@ -15,31 +16,38 @@
         android:layout_marginTop="8dp"
         android:onClick="getSearchString"
         android:text="Search"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchString"
         app:layout_constraintVertical_bias="0.25"
-        tools:text="Search" />
+        tools:text="Search"
+        android:background="@drawable/button_rounded"/>
 
     <EditText
         android:id="@+id/searchString"
         style="@android:style/Widget.Holo.EditText"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
+        android:paddingStart="8dp"
+        android:hint="Search"
         android:layout_marginBottom="8dp"
+        android:textCursorDrawable="@null"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_states"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:text="Name"
+        android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.25"
+        tools:text="Name" />
 
     <TextView
         android:id="@+id/Title"
@@ -49,7 +57,13 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="serif"
         android:text="Keywords to Search"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="sans"
         app:layout_constraintBottom_toTopOf="@+id/searchString"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"

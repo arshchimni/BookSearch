@@ -13,13 +13,17 @@ public class MainActivity extends AppCompatActivity {
     public void getSearchString(View view){
         EditText search=(EditText)findViewById(R.id.searchString);
         String query=search.getText().toString();
-        System.out.println(query);
-        if (query !=null) {
-            Intent intent = new Intent(this, SearchResult.class);
-            intent.putExtra("QUERY", query);
-            startActivity(intent);
+        StringBuilder output=new StringBuilder(query.trim());
+        String modifirdQuery=output.toString().replaceAll(" ","+");
+
+            if (modifirdQuery != null) {
+                Intent intent = new Intent(this, SearchResult.class);
+                intent.putExtra("QUERY", modifirdQuery);
+                startActivity(intent);
+            }
         }
-    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
