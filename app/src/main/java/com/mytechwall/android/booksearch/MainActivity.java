@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,11 +17,15 @@ public class MainActivity extends AppCompatActivity {
         StringBuilder output=new StringBuilder(query.trim());
         String modifirdQuery=output.toString().replaceAll(" ","+");
 
-            if (modifirdQuery != null) {
+            if (!modifirdQuery.equals("")) {
                 Intent intent = new Intent(this, SearchResult.class);
                 intent.putExtra("QUERY", modifirdQuery);
                 startActivity(intent);
             }
+            else {
+                Toast.makeText(this, "Nothing To Search For", Toast.LENGTH_SHORT).show();
+
+        }
         }
 
 
